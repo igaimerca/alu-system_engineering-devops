@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Install nginx and replace the default index page
+
+apt-get update -y >/dev/null 2>&1
+apt-get install nginx -y >/dev/null 2>&1
+
+# Ensure the default page is removed and replaced
+echo "Holberton School for the win!" > /usr/share/nginx/html/index.html
+
+# Restart nginx without using systemctl
+service nginx restart >/dev/null 2>&1
+
+

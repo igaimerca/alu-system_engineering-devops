@@ -1,0 +1,15 @@
+
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+frontend cryptocoder-tech-frontend
+    bind *:80
+    default_backend cryptocoder-tech-backend
+backend cryptocoder-tech-backend
+    balance roundrobin
+    server 6673-web-01 44.204.145.146:80 check
+    server 6673-web-02 13.217.164.136:80 check
+
